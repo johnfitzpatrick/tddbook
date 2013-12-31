@@ -11,3 +11,12 @@ chef_server_url          "https://api.opscode.com/organizations/jhnftzptrcktddbo
 cache_type               'BasicFile'
 cache_options( :path => "#{ENV['HOME']}/.chef/checksums" )
 cookbook_path            ["#{current_dir}/../cookbooks"]
+
+knife[:aws_access_key_id] = "#{ENV['AWS_ACCESS_KEY_ID']}"
+knife[:aws_secret_access_key] = "#{ENV['AWS_SECRET_ACCESS_KEY']}"
+
+knife[:availability_zone] = "#{ENV['EC2_AVAILABILITY_ZONE']}"
+knife[:region] = "#{ENV['EC2_REGION']}"
+
+knife[:identify_file]="#{ENV['KEYPATH']}"
+knife[:aws_ssh_key_id]="#{ENV['KEYNAME']}"
